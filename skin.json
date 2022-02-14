@@ -1,10 +1,10 @@
 {
-    "name": "Liberty",
+    "name": "LibertyVSX",
     "author": [
         "Librewiki developers",
         "..."
     ],
-    "url": "https://gitlab.com/librewiki/Liberty-MW-Skin",
+    "url": "https://github.com/GlitchyPSI/Liberty-MW-Skin",
     "descriptionmsg": "liberty-desc",
     "namemsg": "skinname-liberty",
     "license-name": "GPL-3.0-or-later",
@@ -14,16 +14,16 @@
         "MediaWiki": ">= 1.37.0"
     },
     "ValidSkinNames": {
-        "liberty": "Liberty"
+        "libertyvsx": "LibertyVSX"
     },
     "MessagesDirs": {
-        "Liberty": [
+        "LibertyVSX": [
             "i18n"
         ]
     },
     "config": {
         "LibertyEnableLiveRC": true,
-        "LibertyUseGravatar": true,
+        "LibertyUseGravatar": false,
         "LibertyMainColor": "#4188F1",
         "LibertySecondColor": null,
         "LibertyAdSetting": null,
@@ -142,7 +142,7 @@
         }
     },
     "AutoloadClasses": {
-        "SkinLiberty": "SkinLiberty.php",
+        "SkinLibertyVSX": "SkinLibertyVSX.php",
         "LibertyTemplate": "LibertyTemplate.php",
         "LibertyHooks": "LibertyHooks.php"
     },

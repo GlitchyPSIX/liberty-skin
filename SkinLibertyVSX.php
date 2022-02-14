@@ -1,9 +1,9 @@
 <?php
 // @codingStandardsIgnoreLine
-class SkinLiberty extends SkinTemplate{
+class SkinLibertyVSX extends SkinTemplate{
     // @codingStandardsIgnoreStart
-    public $skinname = 'liberty';
-    public $stylename = 'Liberty';
+    public $skinname = 'libertyvsx';
+    public $stylename = 'LibertyVSX';
     public $template = 'LibertyTemplate';
     // @codingStandardsIgnoreEnd
 

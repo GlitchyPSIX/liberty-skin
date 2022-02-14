@@ -1,5 +1,10 @@
 /* Max-width: 1023 Desktop deadline */
 @media screen and (max-width: 1023px) {
+
+	.Liberty .content-wrapper .liberty-content {
+		margin-left: 0px;
+	}
+
 	.Liberty .nav-wrapper .navbar {
 		padding: 0 0.5rem;
 	}
@@ -106,6 +111,8 @@
 		text-align: center;
 		margin: 0 0.25rem;
 	}
+
+	
 
 	.Liberty .nav-wrapper .navbar .navbar-nav .nav-item .nav-link .hide-title {
 		display: none;

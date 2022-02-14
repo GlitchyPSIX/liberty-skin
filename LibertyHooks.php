@@ -7,7 +7,7 @@ class LibertyHooks extends Hooks{
 	 * @param array &$bodyAttrs
 	 */
 	public static function onOutputPageBodyAttributes( OutputPage $out, Skin $sk, &$bodyAttrs ) {
-		if ( $sk->getSkinName() === 'liberty' ) {
+		if ( $sk->getSkinName() === 'libertyvsx' ) {
 			$bodyAttrs['class'] .= ' Liberty width-size';
 		}
 	}

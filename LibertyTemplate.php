@@ -182,7 +182,7 @@ class LibertyTemplate extends BaseTemplate
 		<form action="<?php $this->text('wgScript'); ?>" id="searchform" class="form-inline">
 			<input type="hidden" name="title" value="<?php $this->text('searchtitle'); ?>" />
 			<div class="input-group">
-				<?php echo $this->makeSearchInput(['class' => 'form-control', 'id' => 'searchInput']); ?>
+				<?php echo $skin->makeSearchInput(['class' => 'form-control', 'id' => 'searchInput']); ?>
 				<span class="input-group-btn">
 					<?php
 					// @codingStandardsIgnoreStart 
@@ -234,12 +234,13 @@ class LibertyTemplate extends BaseTemplate
 					$avatar = Html::element('img', [
 						'class' => 'profile-img',
 						'src' => $skin->getSkinStylePath( './img/avatarless_user.png' )
-					]) . Html::element('span', [
-						'class' => 'fa fa-caret-down',
-						'style' => "padding: 0 0 0 0.325em;"
 					]);
 				}
-
+				$avatar .= Html::element('span', [
+					'class' => 'fa fa-caret-down',
+					'style' => "padding: 0 0 0 0.325em;"
+				]);
+				
 				// SocialProfile support
 				if (class_exists('wAvatar')) {
 					$avatar = new wAvatar($user->getId(), 'm');

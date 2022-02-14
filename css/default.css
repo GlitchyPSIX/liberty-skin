@@ -180,7 +180,7 @@ strike {
 /* Content width, alian center */
 .Liberty .nav-wrapper .navbar,
 .Liberty .content-wrapper {
-  max-width: 1200px;
+  max-width: 1536px; /* 80% of 1920w */
   margin: 0 auto;
 }
 /* Content width, alian center End */
@@ -343,7 +343,7 @@ strike {
 
 /* Right menu */
 .Liberty .content-wrapper .liberty-sidebar {
-  float: right;
+  float: left;
   width: 15rem;
   position: relative;
 }
@@ -633,7 +633,7 @@ strike {
 }
 
 .Liberty .content-wrapper .liberty-content {
-  margin-right: 16rem;
+  margin-left: 16rem;
   padding: 0;
   padding-bottom: 1rem;
 }
