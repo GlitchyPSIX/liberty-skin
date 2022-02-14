@@ -337,7 +337,8 @@ class LibertyTemplate extends BaseTemplate {
 	protected function loginModal() {
 		$skin = $this->getSkin();
 		$title = $skin->getTitle();
-
+		$linkRenderer = MediaWikiServices::getInstance()->getLinkRenderer();
+		
 		// Probably no point in rendering a login window for the users who are
 		// already logged in?
 		if ( $skin->getUser()->isRegistered() ) {
