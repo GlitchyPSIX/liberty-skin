@@ -104,8 +104,7 @@ class LibertyTemplate extends BaseTemplate
 						</div>
 					</footer>
 					<div id="liberty-bottombtn">
-						<div class="scroll-button" id="liberty-scrollup"><i class="fas fa-angle-up"></i></div>
-						<div class="scroll-button" id="liberty-scrolldown"><i class="fas fa-angle-down"></i></div>
+						<div class="scroll-button" title="Go to Top" id="liberty-scrollup"><i class="fas fa-angle-up"></i></div>
 					</div>
 				</div>
 			</div>
@@ -696,14 +695,6 @@ class LibertyTemplate extends BaseTemplate
 				<?php
 				}
 				?>
-				<li class="designedbylibre">
-					<a href="//librewiki.net">
-						<?php // @codingStandardsIgnoreLine 
-						?>
-						<img src="<?php echo $this->getSkin()->getConfig()->get('StylePath'); //phpcs:ignore 
-									?>/Liberty/img/designedbylibre.png" style="height:31px" alt="Designed by Librewiki">
-					</a>
-				</li>
 			</ul>
 		<?php
 		}
