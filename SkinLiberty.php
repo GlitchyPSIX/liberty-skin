@@ -14,7 +14,7 @@ class SkinLiberty extends SkinTemplate{
 	 */
 	public function initPage( OutputPage $out ) {
         // @codingStandardsIgnoreLine
-        global $wgSitename, $wgTwitterAccount, $wgLanguageCode, $wgNaverVerification, $wgLogo, $wgLibertyEnableLiveRC, $wgLibertyAdSetting, $wgLibertyAdGroup;
+        global $wgSitename, $wgTwitterAccount, $wgLanguageCode, $wgNaverVerification, $wgLogo, $wgLibertyEnableLiveRC, $wgLibertyAdSetting, $wgLibertyAdGroup, $wgLibertyVSXNavbarLogo;
 
 		$user = $this->getUser();
 		/* uncomment if needs to use UserGroupManager
@@ -34,8 +34,9 @@ class SkinLiberty extends SkinTemplate{
 		if ( !preg_match( '/^((?:(?:http(?:s)?)?:)?\/\/(?:.{4,}))$/i', $ogLogo ) ) {
 			$ogLogo = $GLOBALS['wgServer'] . $GLOBALS['wgLogo'];
 		}
-
 		$skin = $this->getSkin();
+
+		$wgLibertyVSXNavbarLogo = (isset($GLOBALS['wgLibertyVSXNavbarLogo']) ? $wgLibertyVSXNavbarLogo : $skin->getSkinStylePath( './img/logo.png' ) );		
 
 		parent::initPage( $out );
 
@@ -135,6 +136,15 @@ class SkinLiberty extends SkinTemplate{
 			background-color: $secondColor;
 		}
 
+		
+		.Liberty .nav-wrapper .navbar .navbar-brand {
+			height: 2.8rem;
+			width: 6.6rem;
+			background: transparent url($wgLibertyVSXNavbarLogo) no-repeat scroll left center/auto
+			  1.9rem;
+			padding: 0;
+			margin: 0;
+  		}
 
 		.Liberty .content-wrapper #liberty-bottombtn,
 		.Liberty .content-wrapper #liberty-bottombtn:hover {
@@ -240,11 +250,13 @@ class SkinLiberty extends SkinTemplate{
 		.flow-ui-navigationWidget { color: #FFF; }
 		.Liberty .content-wrapper .liberty-content .liberty-content-main .toccolours, .Liberty .content-wrapper .liberty-content .liberty-content-main .toc ul, .Liberty .content-wrapper .liberty-content .liberty-content-main .toc li { background-color: #000; }
 		.Liberty .content-wrapper .liberty-content .liberty-content-main .toc .toctitle { background-color: #1F2023; }";
-        $LibertyUserDarkSetting = $user->getOption('liberty-dark');
+        
+		$LibertyUserDarkSetting = $user->getOption('liberty-dark');
+		// Disabling until a proper dark theme is done, theme was requested to be always light
         if ($LibertyUserDarkSetting === 'dark') {
-            $out->addInlineStyle($LibertyDarkCss);
+            //$out->addInlineStyle($LibertyDarkCss);
         } elseif ($LibertyUserDarkSetting === null) {
-            $out->addInlineStyle("@media (prefers-color-scheme: dark) { $LibertyDarkCss }");
+            //$out->addInlineStyle("@media (prefers-color-scheme: dark) { $LibertyDarkCss }");
         }
         // @codingStandardsIgnoreEnd
 		$this->setupCss( $out );
