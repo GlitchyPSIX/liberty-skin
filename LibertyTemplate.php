@@ -74,7 +74,7 @@ class LibertyTemplate extends BaseTemplate
 							$this->html('catlinks');
 						}
 						?>
-						<article class="mw-body-content">
+						<article class="mw-body-content" id="mw-content-text">
 							<?php $this->html('bodycontent'); ?>
 						</article>
 						<?php
