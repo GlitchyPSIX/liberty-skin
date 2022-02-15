@@ -31,11 +31,12 @@ class LibertyHooks extends Hooks{
 			'options' => [
 				wfMessage( 'liberty-layout-select-1000' )->text() => '1000px',
 				wfMessage( 'liberty-layout-select-1100' )->text() => '1100px',
-				wfMessage( 'liberty-layout-select-1200' )->text() => null,
+				wfMessage( 'liberty-layout-select-1200' )->text() => '1200px',
 				wfMessage( 'liberty-layout-select-1300' )->text() => '1300px',
 				wfMessage( 'liberty-layout-select-1400' )->text() => '1400px',
 				wfMessage( 'liberty-layout-select-1500' )->text() => '1500px',
 				wfMessage( 'liberty-layout-select-1600' )->text() => '1600px',
+				wfMessage( 'liberty-layout-select-90vw' )->text() => null
 			],
 			'help-message' => 'liberty-pref-layout-width-help',
 			'default' => null

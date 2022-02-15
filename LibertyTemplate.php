@@ -18,6 +18,7 @@ class LibertyTemplate extends BaseTemplate
 		$action = $request->getVal('action', 'view');
 		$title = $skin->getTitle();
 		$LibertyUserSidebarSettings = $user->getOption('liberty-layout-sidebar');
+		$linkRenderer = MediaWikiServices::getInstance()->getLinkRenderer();
 
 		$this->html('headelement');
 ?>
@@ -28,18 +29,60 @@ class LibertyTemplate extends BaseTemplate
 		</header>
 		<section>
 			<div class="content-wrapper">
-				<?php if ($LibertyUserSidebarSettings == false) { ?>
-					<aside>
-						<div class="liberty-sidebar">
+				<aside>
+					<div class="liberty-sidebar">
+						<?php if ($LibertyUserSidebarSettings) { ?>
 							<div class="live-recent-wrapper">
 								<?php $this->liveRecent(); ?>
 							</div>
-							<?php if (isset($wgLibertyAdSetting['right']) && $wgLibertyAdSetting['right']) {
-								$this->buildAd('right');
-							} ?>
+						<?php } ?>
+						<div class="side-navi">
+							<span class="navi-title section-title">Navigation</span>
+							<hr />
+							<?php
+
+							if (!$LibertyUserSidebarSettings) {
+								echo $linkRenderer->makeKnownLink(
+									new TitleValue(NS_SPECIAL, 'Recentchanges'),
+									// @codingStandardsIgnoreStart
+									new HtmlArmor('<span>' . $skin->msg('recentchanges')->plain() . '</span>'),
+									// @codingStandardsIgnoreEnd )
+									[
+										'title' => Linker::titleAttrib('n-recentchanges', 'withaccess'),
+										'accesskey' => Linker::accesskey('n-recentchanges')
+									]
+								);
+							}
+
+							echo $linkRenderer->makeKnownLink(
+								new TitleValue(NS_SPECIAL, 'Randompage'),
+								// @codingStandardsIgnoreStart
+								new HtmlArmor('<span>' . $skin->msg('Randompage')->plain() . '</span>'),
+								// @codingStandardsIgnoreEnd )
+								[
+									'title' => Linker::titleAttrib('n-randompage', 'withaccess'),
+									'accesskey' => Linker::accesskey('n-randompage')
+								]
+							);
+
+							echo $linkRenderer->makeKnownLink(
+								new TitleValue(NS_SPECIAL, 'Newpages'),
+								// @codingStandardsIgnoreStart
+								new HtmlArmor('<span>' . $skin->msg('Newpages')->plain() . '</span>'),
+								// @codingStandardsIgnoreEnd )
+								[
+									'title' => Linker::titleAttrib('n-newpages', 'withaccess'),
+									'accesskey' => Linker::accesskey('n-newpages')
+								]
+							);
+							?>
 						</div>
-					</aside>
-				<?php } ?>
+						<?php if (isset($wgLibertyAdSetting['right']) && $wgLibertyAdSetting['right']) {
+							$this->buildAd('right');
+						} ?>
+					</div>
+				</aside>
+
 				<div class="container-fluid liberty-content">
 					<div class="liberty-content-header">
 						<?php if (
@@ -130,39 +173,13 @@ class LibertyTemplate extends BaseTemplate
 	 */
 	protected function navMenu()
 	{
-		$linkRenderer = MediaWikiServices::getInstance()->getLinkRenderer();
 		$skin = $this->getSkin();
 	?>
 		<nav class="navbar navbar-dark">
 			<a class="navbar-brand" href="<?php echo Title::newMainPage()->getLocalURL(); ?>"></a>
 			<ul class="nav navbar-nav">
 				<li class="nav-item">
-					<?php echo $linkRenderer->makeKnownLink(
-						new TitleValue(NS_SPECIAL, 'Recentchanges'),
-						// @codingStandardsIgnoreStart
-						new HtmlArmor('<span class="fas fa-sync"></span><span class="hide-title">' . $skin->msg('recentchanges')->plain() . '</span>'),
-						// @codingStandardsIgnoreEnd )
-						[
-							'class' => 'nav-link',
-							'title' => Linker::titleAttrib('n-recentchanges', 'withaccess'),
-							'accesskey' => Linker::accesskey('n-recentchanges')
-						]
-					); ?>
-				</li>
-				<li class="nav-item">
-					<?php echo $linkRenderer->makeKnownLink(
-						new TitleValue(NS_SPECIAL, 'Randompage'),
-						// @codingStandardsIgnoreStart
-						new HtmlArmor('<span class="fa fa-random"></span><span class="hide-title">' . $skin->msg('randompage')->plain() . '</span>'),
-						// @codingStandardsIgnoreEnd
-						[
-							'class' => 'nav-link',
-							'title' => Linker::titleAttrib('n-randompage', 'withaccess'),
-							'accesskey' => Linker::accesskey('n-randompage')
-						]
-					); ?>
-				</li>
-				<?php echo $this->renderPortal($this->parseNavbar()); ?>
+					<?php echo $this->renderPortal($this->parseNavbar()); ?>
 			</ul>
 			<?php $this->loginBox(); ?>
 			<?php $this->getNotification(); ?>
@@ -232,14 +249,14 @@ class LibertyTemplate extends BaseTemplate
 				} else {
 					$avatar = Html::element('img', [
 						'class' => 'profile-img',
-						'src' => $skin->getSkinStylePath( './img/avatarless_user.png' )
+						'src' => $skin->getSkinStylePath('./img/avatarless_user.png')
 					]);
 				}
 				$avatar .= Html::element('span', [
 					'class' => 'fa fa-caret-down',
 					'style' => "padding: 0 0 0 0.325em;"
 				]);
-				
+
 				// SocialProfile support
 				if (class_exists('wAvatar')) {
 					$avatar = new wAvatar($user->getId(), 'm');
@@ -435,7 +452,7 @@ class LibertyTemplate extends BaseTemplate
 	?>
 		<div class="live-recent" data-article-ns="<?php echo $articleNS ?>" data-talk-ns="<?php echo $talkNS ?>">
 			<div class="live-recent-header">
-				<ul class="nav nav-tabs">
+				<ul class="nav nav-tabs" style="display:flex;">
 					<li class="nav-item">
 						<a href="javascript:" class="nav-link active" id="liberty-recent-tab1">
 							<?php echo $skin->msg('recentchanges')->plain() ?>
@@ -465,6 +482,7 @@ class LibertyTemplate extends BaseTemplate
 				); ?>
 			</div>
 		</div>
+		<hr />
 		<?php
 	}
 

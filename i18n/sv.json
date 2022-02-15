@@ -42,7 +42,6 @@
 	"prefs-color": "Färginställning",
 	"prefs-layout": "Layoutinställning",
 	"liberty-pref-layout-navfix": "Inaktivera statiskt navigeringsfält",
-	"liberty-pref-layout-sidebar": "Ta bort sidofältet till höger",
 	"liberty-pref-layout-width": "Fast bredd",
 	"liberty-pref-layout-width-help": "Ändra maximala storleken för dokumentområdet",
 	"liberty-pref-color-main": "Primär färg",

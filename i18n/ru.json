@@ -39,7 +39,6 @@
 	"prefs-liberty": "Liberty skin",
 	"prefs-color": "Настройки цвета",
 	"prefs-layout": "Настройка макета",
-	"liberty-pref-layout-sidebar": "Убрать правую боковую панель",
 	"liberty-pref-layout-width": "Статическая ширина",
 	"liberty-pref-layout-width-help": "Установить максимальный размер области документа",
 	"liberty-pref-color-main": "Главный цвет",
