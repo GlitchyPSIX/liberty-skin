@@ -138,10 +138,7 @@ class SkinLibertyVSX extends SkinTemplate{
 
 		
 		.Liberty .nav-wrapper .navbar .navbar-brand {
-			height: 2.8rem;
-			width: 6.6rem;
-			background: transparent url($wgLibertyVSXNavbarLogo) no-repeat scroll left center/auto
-			  1.9rem;
+			background: transparent url($wgLibertyVSXNavbarLogo) no-repeat scroll left center/contain;
 			padding: 0;
 			margin: 0;
   		}
