@@ -75,6 +75,28 @@ class LibertyTemplate extends BaseTemplate
 									'accesskey' => Linker::accesskey('n-newpages')
 								]
 							);
+
+							echo $linkRenderer->makeKnownLink(
+								new TitleValue(NS_SPECIAL, 'Specialpages'),
+								// @codingStandardsIgnoreStart
+								new HtmlArmor('<span>' . $skin->msg('Specialpages')->plain() . '</span>'),
+								// @codingStandardsIgnoreEnd )
+								[
+									'title' => Linker::titleAttrib('n-specialpages', 'withaccess'),
+									'accesskey' => Linker::accesskey('n-specialpages')
+								]
+							);
+
+							echo $linkRenderer->makeKnownLink(
+								new TitleValue(NS_SPECIAL, 'Upload'),
+								// @codingStandardsIgnoreStart
+								new HtmlArmor('<span>' . $skin->msg('Upload')->plain() . '</span>'),
+								// @codingStandardsIgnoreEnd )
+								[
+									'title' => Linker::titleAttrib('n-upload', 'withaccess'),
+									'accesskey' => Linker::accesskey('n-upload')
+								]
+							);
 							?>
 						</div>
 						<?php if (isset($wgLibertyAdSetting['right']) && $wgLibertyAdSetting['right']) {

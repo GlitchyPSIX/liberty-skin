@@ -93,17 +93,6 @@ ol,
   list-style-image: none;
 }
 
-pre {
-  display: block;
-  color: #333;
-  word-break: break-all;
-  word-wrap: break-word;
-  background-color: #f5f8fa;
-  border: 1px solid #e1e8ed;
-  border-radius: 0.35rem;
-  padding: 0.8rem;
-}
-
 a:focus {
   outline: 0;
 }
