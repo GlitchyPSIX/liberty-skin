@@ -360,7 +360,7 @@ strike {
 .Liberty .content-wrapper .liberty-sidebar {
   float: left;
   width: 12.5rem;
-  position: relative;
+  position: absolute;
 }
 
 .Liberty .content-wrapper .liberty-sidebar .side-navi {
