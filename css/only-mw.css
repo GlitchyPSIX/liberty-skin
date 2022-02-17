@@ -284,12 +284,6 @@ td.mw-label {
 	margin-top: 20px;
 }
 
-/* Fix for visualeditor */
-.mw-body-content > .ve-ui-surface  > .ve-ce-surface {
-	min-height:600px;
-}
-
-
 /* Input End */
 
 /* PostEdit */
@@ -336,10 +330,18 @@ html #msupload-dropzone {
 /* MsUpload End */
 
 /* VisualEditor */
+.mw-body-content > .ve-ui-surface  > .ve-ce-surface {
+	min-height:600px;
+}
+
 .ve-ui-toolbar-floating > div.oo-ui-toolbar-bar {
 	/* VisualEditor loads its CSS in the head and it makes this annoying 
 	   Adding specifity by saying it'll be exactly on the div, haha.*/
 	top: 4.5rem;
+}
+
+div.oo-ui-toolbar{
+	clear:none;
 }
 
 /* Extensions End */
